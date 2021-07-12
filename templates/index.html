@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificador de Vidro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+  <nav class="navbar bg-primary justify-content-center">
+    <ul class="nav">
+      <li class="nav-item" >
+        <h2 style="color: white; width: 100%;">ML para prever tipo de vidro</h2>
+        <h6 style="color: white; width: 100%; margin-left: 21%;">
+          ®Made by <a href="https://freddomingues.github.io" target="_blank" style="color: white;">
+            <b><u>Frederico A. Domingues</u></b>
+          </a>
+        </h6>
+        <h6 style="color: white; margin-left: 30%;">
+          <a href="https://github.com/freddomingues/curso-machine-learning/tree/master/Classifica%C3%A7%C3%A3o" target="_blank" style="color: white;">
+            <b><u>Ver código no GitHub</u></b>
+          </a> 
+        </h6>
+      </li>
+    </ul>
+  </nav><br>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        <li class="page-item"><a class="page-link">Prever com:</a></li>
+        <li class="page-item"><a class="page-link" href="#">Naive Bayes</a></li>
+        <li class="page-item"><a class="page-link" href="indexRL.html">Regressão Logística</a></li>
+        <li class="page-item"><a class="page-link" href="indexSVM.html">SVM</a></li>
+      </ul>
+    </nav>
+
+    <div class="card" style="margin-left: 15%; margin-right: 15%; margin-top: 30px; ">
+      <h5 class="card-header">Classificador com Naive Bayes</h5>
+      <div class="card-body">
+          <form id="form" action="{{ url_for('predict_nb')}}" method="post">
+              <div class="form-group">
+                <label for="labelRI">RI (Índice de Refração)</label>
+                <input class="form-control" name="inputRI" id="inputRI">
+              </div>
+              <div class="form-group">
+                <label for="labelNa">Na (Sódio)</label>
+                <input class="form-control" name="inputNa" id="inputNa">
+              </div>
+              <div class="form-group">
+                  <label for="labelMg">Mg (Magnésio)</label>
+                  <input class="form-control" name="inputMg" id="inputMg">
+                </div>
+                <div class="form-group">
+                    <label for="labelAl">Al (Alumínio)</label>
+                    <input class="form-control" name="inputAl" id="inputAl">
+                </div>
+                <div class="form-group">
+                    <label for="labelSi">Si (Silício)</label>
+                    <input class="form-control" name="inputSi" id="inputSi">
+                </div>
+                <div class="form-group">
+                    <label for="labelK">K (Potássio)</label>
+                    <input class="form-control" name="inputK" id="inputK">
+                </div>
+                <div class="form-group">
+                    <label for="labelCa">Ca (Cálcio)</label>
+                    <input class="form-control" name="inputCa" id="inputCa">
+                </div>
+                <div class="form-group">
+                    <label for="labelBa">Ba (Bário)</label>
+                    <input class="form-control" name="inputBa" id="inputBa">
+                </div>
+                <div class="form-group">
+                    <label for="labelFe">Fe (Ferro)</label>
+                    <input class="form-control" name="inputFe" id="inputFe">
+                </div>
+              <button type="submit" class="btn btn-primary" onclick="">Verificar</button><br>
+            </form>
+            {{ prediction_text_nb }}
+            <div style="width: 100px; height: 100px;">
+              <img src="{{ img_nb }}"></img>
+            </div>
+      </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
