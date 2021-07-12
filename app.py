@@ -17,7 +17,7 @@ glassesFolder = os.path.join('static','glasses')
 
 app.config['UPLOAD_FOLDER'] = glassesFolder
 
-@app.route('/')
+@app.route('/index')
 def home():
     return render_template('index.html')
 
@@ -29,7 +29,7 @@ def lr():
 def svm():
     return render_template('indexSVM.html')
 
-@app.route('/index', methods=['GET','POST'])
+@app.route('/predictNB', methods=['GET','POST'])
 def predict_nb():
     RI = float(request.form['inputRI'])
     Na = float(request.form['inputNa'])
@@ -83,7 +83,7 @@ def predict_nb():
     else:
         return render_template('index.html', prediction_text_nb ='Resultado: ')
 
-@app.route('/indexRL',methods=['GET','POST'])
+@app.route('/predictRL',methods=['GET','POST'])
 def predict_rl():
     RI = float(request.form['inputRI'])
     Na = float(request.form['inputNa'])
@@ -108,7 +108,7 @@ def predict_rl():
         glass = os.path.join(app.config['UPLOAD_FOLDER'],'class2.jpg')
         return render_template('indexRL.html', 
                                prediction_text_rl ='Resultado: Vidro Não-Processado para Construções',
-                               img_nb = glass)
+                               img_rl = glass)
     elif resposta_rl == 3:
         glass = os.path.join(app.config['UPLOAD_FOLDER'],'class3.jpg')
         return render_template('indexRL.html', 
@@ -138,7 +138,7 @@ def predict_rl():
         return render_template('indexRL.html', prediction_text_rl ='Resultado: ')
     
 
-@app.route('/indexSVM',methods=['GET','POST'])
+@app.route('/predictSVM',methods=['GET','POST'])
 def predict_svm():
     RI = float(request.form['inputRI'])
     Na = float(request.form['inputNa'])

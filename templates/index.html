@@ -10,15 +10,20 @@
   <nav class="navbar bg-primary justify-content-center">
     <ul class="nav">
       <li class="nav-item" >
-        <h2 style="color: white; width: 100%;">ML para prever tipo de vidro</h2>
+        <h2 style="color: white; width: 100%;">ML para classificar tipos de vidros</h2>
         <h6 style="color: white; width: 100%; margin-left: 21%;">
           ®Made by <a href="https://freddomingues.github.io" target="_blank" style="color: white;">
             <b><u>Frederico A. Domingues</u></b>
           </a>
         </h6>
         <h6 style="color: white; margin-left: 30%;">
-          <a href="https://github.com/freddomingues/curso-machine-learning/tree/master/Classifica%C3%A7%C3%A3o" target="_blank" style="color: white;">
+          <a href="https://github.com/freddomingues/glass-classification" target="_blank" style="color: white;">
             <b><u>Ver código no GitHub</u></b>
+          </a> 
+        </h6>
+        <h6 style="color: white; margin-left: 30%;">
+          <a href="https://www.kaggle.com/uciml/glass" target="_blank" style="color: white;">
+            <b><u>Ver problma no Kaggle</u></b>
           </a> 
         </h6>
       </li>
@@ -28,8 +33,8 @@
       <ul class="pagination justify-content-center">
         <li class="page-item"><a class="page-link">Prever com:</a></li>
         <li class="page-item"><a class="page-link" href="#">Naive Bayes</a></li>
-        <li class="page-item"><a class="page-link" href="indexRL.html">Regressão Logística</a></li>
-        <li class="page-item"><a class="page-link" href="indexSVM.html">SVM</a></li>
+        <li class="page-item"><a class="page-link" href="indexRL">Regressão Logística</a></li>
+        <li class="page-item"><a class="page-link" href="indexSVM">SVM</a></li>
       </ul>
     </nav>
 
@@ -76,7 +81,7 @@
               <button type="submit" class="btn btn-primary" onclick="">Verificar</button><br>
             </form>
             {{ prediction_text_nb }}
-            <div style="width: 100px; height: 100px;">
+            <div style="height: 200px;">
               <img src="{{ img_nb }}"></img>
             </div>
       </div>

@@ -10,15 +10,20 @@
   <nav class="navbar bg-primary justify-content-center">
     <ul class="nav">
       <li class="nav-item" >
-        <h2 style="color: white; width: 100%;">ML para prever tipo de vidro</h2>
+        <h2 style="color: white; width: 100%;">ML para classificar tipos de vidros</h2>
         <h6 style="color: white; width: 100%; margin-left: 21%;">
           ®Made by <a href="https://freddomingues.github.io" target="_blank" style="color: white;">
             <b><u>Frederico A. Domingues</u></b>
           </a>
         </h6>
         <h6 style="color: white; margin-left: 30%;">
-          <a href="https://github.com/freddomingues/curso-machine-learning/tree/master/Classifica%C3%A7%C3%A3o" target="_blank" style="color: white;">
+          <a href="https://github.com/freddomingues/glass-classification" target="_blank" style="color: white;">
             <b><u>Ver código no GitHub</u></b>
+          </a> 
+        </h6>
+        <h6 style="color: white; margin-left: 30%;">
+          <a href="https://www.kaggle.com/uciml/glass" target="_blank" style="color: white;">
+            <b><u>Ver problma no Kaggle</u></b>
           </a> 
         </h6>
       </li>
@@ -27,55 +32,58 @@
     <nav aria-label="Page navigation example">
       <ul class="pagination justify-content-center">
         <li class="page-item"><a class="page-link">Prever com:</a></li>
-        <li class="page-item"><a class="page-link" href="index.html">Naive Bayes</a></li>
+        <li class="page-item"><a class="page-link" href="index">Naive Bayes</a></li>
         <li class="page-item"><a class="page-link" href="#">Regressão Logística</a></li>
-        <li class="page-item"><a class="page-link" href="indexSVM.html">SVM</a></li>
+        <li class="page-item"><a class="page-link" href="indexSVM">SVM</a></li>
       </ul>
     </nav>
 
     <div class="card" style="margin-left: 15%; margin-right: 15%; margin-top: 30px; ">
       <h5 class="card-header">Classificador com Regressão Logística</h5>
       <div class="card-body">
-          <form id="formNB" action="{{ url_for('predict_rl')}}" method="post">
-              <div class="form-group">
-                <label for="labelRI">RI (Índice de Refração)</label>
-                <input type="number" class="form-control" name="inputRI">
-              </div>
-              <div class="form-group">
-                <label for="labelNa">Na (Sódio)</label>
-                <input type="number" class="form-control" name="inputNa">
-              </div>
-              <div class="form-group">
-                  <label for="labelMg">Mg (Magnésio)</label>
-                  <input type="number" class="form-control" name="inputMg">
-                </div>
-                <div class="form-group">
-                    <label for="labelAl">Al (Alumínio)</label>
-                    <input type="number" class="form-control" name="inputAl">
-                </div>
-                <div class="form-group">
-                    <label for="labelSi">Si (Silício)</label>
-                    <input type="number" class="form-control" name="inputSi">
-                </div>
-                <div class="form-group">
-                    <label for="labelK">K (Potássio)</label>
-                    <input type="number" class="form-control" name="inputK">
-                </div>
-                <div class="form-group">
-                    <label for="labelCa">Ca (Cálcio)</label>
-                    <input type="number" class="form-control" name="inputCa">
-                </div>
-                <div class="form-group">
-                    <label for="labelBa">Ba (Bário)</label>
-                    <input type="number" class="form-control" name="inputBa">
-                </div>
-                <div class="form-group">
-                    <label for="labelFe">Fe (Ferro)</label>
-                    <input type="number" class="form-control" name="inputFe">
-                </div>
-              <button type="submit" class="btn btn-primary" onclick="">Verificar</button><br>
-            </form>
-            {{ prediction_text_rl }}
+        <form id="form" action="{{ url_for('predict_rl')}}" method="post">
+          <div class="form-group">
+            <label for="labelRI">RI (Índice de Refração)</label>
+            <input class="form-control" name="inputRI" id="inputRI">
+          </div>
+          <div class="form-group">
+            <label for="labelNa">Na (Sódio)</label>
+            <input class="form-control" name="inputNa" id="inputNa">
+          </div>
+          <div class="form-group">
+              <label for="labelMg">Mg (Magnésio)</label>
+              <input class="form-control" name="inputMg" id="inputMg">
+            </div>
+            <div class="form-group">
+                <label for="labelAl">Al (Alumínio)</label>
+                <input class="form-control" name="inputAl" id="inputAl">
+            </div>
+            <div class="form-group">
+                <label for="labelSi">Si (Silício)</label>
+                <input class="form-control" name="inputSi" id="inputSi">
+            </div>
+            <div class="form-group">
+                <label for="labelK">K (Potássio)</label>
+                <input class="form-control" name="inputK" id="inputK">
+            </div>
+            <div class="form-group">
+                <label for="labelCa">Ca (Cálcio)</label>
+                <input class="form-control" name="inputCa" id="inputCa">
+            </div>
+            <div class="form-group">
+                <label for="labelBa">Ba (Bário)</label>
+                <input class="form-control" name="inputBa" id="inputBa">
+            </div>
+            <div class="form-group">
+                <label for="labelFe">Fe (Ferro)</label>
+                <input class="form-control" name="inputFe" id="inputFe">
+            </div>
+          <button type="submit" class="btn btn-primary" onclick="">Verificar</button><br>
+        </form>
+        {{ prediction_text_rl }}
+        <div style="height: 200px;">
+          <img src="{{ img_rl }}"></img>
+        </div>
       </div>
     </div>
     
